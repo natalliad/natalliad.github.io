@@ -1,0 +1,986 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ND Agency LLC | Independent Insurance Agent — NY, NJ, PA</title>
+<meta name="description" content="ND Agency LLC is an independent insurance agent serving New York, New Jersey, and Pennsylvania. Auto, home, landlord, renters, motorcycle, boat, umbrella, and business coverage. No fee to quote or write a policy. English, Russian, Ukrainian, and Belarusian spoken with clients.">
+<link rel="icon" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2NCA2NCI+CiAgPHJlY3Qgd2lkdGg9IjY0IiBoZWlnaHQ9IjY0IiByeD0iMTAiIGZpbGw9IiMwRTIzNDAiLz4KICA8dGV4dCB4PSIzMiIgeT0iNDEiIGZvbnQtZmFtaWx5PSJHZW9yZ2lhLCAnVGltZXMgTmV3IFJvbWFuJywgc2VyaWYiIGZvbnQtc2l6ZT0iMjYiIGZvbnQtd2VpZ2h0PSI3MDAiIGZpbGw9IiNDOUE4NTciIHRleHQtYW5jaG9yPSJtaWRkbGUiPk5EPC90ZXh0Pgo8L3N2Zz4K" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* ============================================================
+   ND AGENCY LLC — Design tokens
+   Ink Navy / Harbor Blue / Brass / Porcelain
+   Display: Fraunces · Body: Inter
+   ============================================================ */
+
+:root{
+  --ink:        #0E2340;
+  --ink-2:      #123663;
+  --harbor:     #1B4F91;
+  --harbor-dark:#123663;
+  --brass:      #A6802D;
+  --brass-light:#C9A857;
+  --porcelain:  #F6F5F1;
+  --card:       #FFFFFF;
+  --text:       #1A1F29;
+  --slate:      #5B6472;
+  --line:       #E4E1D8;
+  --line-dark:  rgba(255,255,255,.14);
+
+  --font-display: "Fraunces", Georgia, serif;
+  --font-body: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+
+  --container: 1180px;
+  --radius: 4px;
+}
+
+*, *::before, *::after{ box-sizing: border-box; }
+
+html{ scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce){
+  html{ scroll-behavior: auto; }
+  *, *::before, *::after{ animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; scroll-behavior: auto !important; }
+}
+
+body{
+  margin: 0;
+  font-family: var(--font-body);
+  color: var(--text);
+  background: var(--porcelain);
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4{
+  font-family: var(--font-display);
+  color: var(--ink);
+  margin: 0 0 .5em;
+  font-weight: 600;
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+}
+
+p{ margin: 0 0 1em; color: var(--slate); }
+
+a{ color: var(--harbor); text-decoration: none; }
+a:hover{ color: var(--harbor-dark); }
+
+img, svg{ display: block; max-width: 100%; }
+
+ul{ margin: 0; padding: 0; list-style: none; }
+dl, dt, dd{ margin: 0; padding: 0; }
+
+:focus-visible{
+  outline: 2px solid var(--brass);
+  outline-offset: 3px;
+}
+
+.skip-link{
+  position: absolute;
+  left: -999px;
+  top: 0;
+  background: var(--ink);
+  color: #fff;
+  padding: .75em 1.25em;
+  z-index: 100;
+}
+.skip-link:focus{ left: 1em; top: 1em; }
+
+.wrap{
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.eyebrow{
+  font-family: var(--font-body);
+  font-size: .78rem;
+  font-weight: 600;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--brass);
+  margin: 0 0 .9em;
+}
+.eyebrow-light{ color: var(--brass-light); }
+
+.section-lede{
+  max-width: 56ch;
+  font-size: 1.05rem;
+}
+.light-lede{ color: rgba(255,255,255,.72); }
+.light-heading{ color: #fff; }
+
+/* ============================================================
+   BUTTONS
+   ============================================================ */
+
+.btn{
+  display: inline-flex;
+  align-items: center;
+  gap: .5em;
+  padding: .85em 1.6em;
+  border-radius: var(--radius);
+  font-weight: 600;
+  font-size: .95rem;
+  border: 1px solid transparent;
+  transition: background-color .15s ease, color .15s ease, border-color .15s ease, transform .15s ease;
+  white-space: nowrap;
+}
+.btn:hover{ transform: translateY(-1px); }
+
+.btn-primary{
+  background: var(--harbor);
+  color: #fff;
+}
+.btn-primary:hover{ background: var(--harbor-dark); color: #fff; }
+
+.btn-ghost{
+  background: transparent;
+  color: var(--ink);
+  border-color: var(--ink);
+}
+.btn-ghost:hover{ background: var(--ink); color: #fff; }
+
+/* ============================================================
+   HEADER
+   ============================================================ */
+
+.site-header{
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: rgba(246,245,241,.92);
+  backdrop-filter: saturate(160%) blur(8px);
+  border-bottom: 1px solid var(--line);
+}
+
+.header-row{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  height: 76px;
+}
+
+.brand{
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: var(--ink);
+}
+.brand:hover{ color: var(--ink); }
+
+.brand-mark{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background: var(--ink);
+  color: var(--brass-light);
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.05rem;
+  border-radius: 3px;
+  flex-shrink: 0;
+}
+.brand-mark-small{ width: 34px; height: 34px; font-size: .95rem; }
+
+.brand-name{
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 1.15rem;
+  letter-spacing: .01em;
+  color: var(--ink);
+}
+.brand-suffix{ color: var(--slate); font-weight: 400; }
+
+.main-nav{
+  display: flex;
+  gap: 32px;
+}
+.main-nav a{
+  color: var(--ink);
+  font-size: .95rem;
+  font-weight: 500;
+  padding: 4px 0;
+  border-bottom: 2px solid transparent;
+}
+.main-nav a:hover{
+  color: var(--harbor);
+  border-bottom-color: var(--brass);
+}
+
+.header-actions{
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.phone-pill{
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--ink);
+  color: #fff;
+  padding: .6em 1.1em;
+  border-radius: 999px;
+  font-size: .9rem;
+  font-weight: 600;
+  white-space: nowrap;
+}
+.phone-pill svg{ width: 15px; height: 15px; }
+.phone-pill:hover{ background: var(--harbor-dark); color: #fff; }
+
+.nav-toggle{
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  width: 40px;
+  height: 40px;
+  background: none;
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  cursor: pointer;
+}
+.nav-toggle span{
+  display: block;
+  height: 2px;
+  width: 20px;
+  margin: 0 auto;
+  background: var(--ink);
+}
+
+/* ============================================================
+   HERO
+   ============================================================ */
+
+.hero{
+  padding: 88px 0 72px;
+  background:
+    radial-gradient(1100px 480px at 82% -10%, rgba(27,79,145,.10), transparent 60%),
+    var(--porcelain);
+  border-bottom: 1px solid var(--line);
+}
+
+.hero-grid{
+  display: grid;
+  grid-template-columns: 1.15fr .85fr;
+  gap: 56px;
+  align-items: center;
+}
+
+.hero-copy h1{
+  font-size: clamp(2.2rem, 4.4vw, 3.4rem);
+  max-width: 15ch;
+}
+
+.hero-lede{
+  font-size: 1.12rem;
+  max-width: 46ch;
+}
+
+.hero-actions{
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+  margin-top: 8px;
+}
+
+.hero-panel{
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-top: 3px solid var(--brass);
+  border-radius: var(--radius);
+  padding: 8px;
+  box-shadow: 0 20px 40px -28px rgba(14,35,64,.35);
+}
+
+.fact-list li{
+  display: flex;
+  align-items: baseline;
+  gap: 16px;
+  padding: 18px 16px;
+  border-bottom: 1px solid var(--line);
+}
+.fact-list li:last-child{ border-bottom: none; }
+
+.fact-num{
+  font-family: var(--font-display);
+  font-size: 1.9rem;
+  font-weight: 700;
+  color: var(--ink);
+  min-width: 2.2ch;
+}
+.fact-label{
+  font-size: .92rem;
+  color: var(--slate);
+}
+
+/* ============================================================
+   COVERAGE SHELF (signature element)
+   ============================================================ */
+
+.coverage{ padding: 96px 0 80px; }
+
+.coverage h2{ font-size: clamp(1.7rem, 3vw, 2.3rem); max-width: 22ch; }
+
+.shelf-wrap{ margin-top: 44px; }
+
+.shelf{
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+  scroll-snap-type: x proximity;
+  padding: 6px 24px 20px;
+  margin: 0 -24px;
+  -webkit-overflow-scrolling: touch;
+}
+.shelf::-webkit-scrollbar{ height: 8px; }
+.shelf::-webkit-scrollbar-thumb{ background: var(--line); border-radius: 4px; }
+.shelf::-webkit-scrollbar-track{ background: transparent; }
+
+.policy-card{
+  position: relative;
+  flex: 0 0 250px;
+  scroll-snap-align: start;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 28px 22px 24px;
+  margin-top: 14px;
+  transition: transform .18s ease, box-shadow .18s ease;
+}
+.policy-card:hover{
+  transform: translateY(-4px);
+  box-shadow: 0 24px 36px -28px rgba(14,35,64,.4);
+}
+
+.policy-tab{
+  position: absolute;
+  top: -14px;
+  left: 20px;
+  background: var(--brass);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: .72rem;
+  font-weight: 700;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  padding: 5px 12px;
+  border-radius: 3px 3px 0 0;
+}
+
+.policy-icon{
+  width: 40px;
+  height: 40px;
+  color: var(--harbor);
+  margin-bottom: 16px;
+}
+
+.policy-card h3{
+  font-size: 1.15rem;
+  margin-bottom: .4em;
+}
+.policy-card p{
+  font-size: .92rem;
+  margin-bottom: 0;
+}
+
+.shelf-hint{
+  margin: 4px 0 0;
+  font-size: .82rem;
+  color: var(--slate);
+  text-align: right;
+}
+
+/* ============================================================
+   CARRIERS
+   ============================================================ */
+
+.carriers{
+  background: var(--ink);
+  padding: 88px 0;
+}
+
+.carrier-plaque{
+  margin-top: 40px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  border-top: 1px solid var(--line-dark);
+}
+
+.carrier-plaque li{
+  padding: 22px 8px;
+  text-align: center;
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  font-weight: 500;
+  color: #fff;
+  letter-spacing: .01em;
+  border-bottom: 1px solid var(--line-dark);
+  border-right: 1px solid var(--line-dark);
+}
+.carrier-plaque li:nth-child(3n){ border-right: none; }
+
+.carrier-note{
+  margin: 24px 0 0;
+  font-size: .88rem;
+  color: rgba(255,255,255,.55);
+  text-align: center;
+}
+
+/* ============================================================
+   ABOUT
+   ============================================================ */
+
+.about{
+  padding: 96px 0;
+  background: var(--card);
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+
+.about-grid{
+  display: grid;
+  grid-template-columns: 1.2fr .8fr;
+  gap: 56px;
+  align-items: start;
+}
+
+.about-copy h2{ font-size: clamp(1.7rem, 3vw, 2.2rem); }
+.about-copy p{ color: var(--text); max-width: 58ch; }
+
+.about-fact-card{
+  background: var(--porcelain);
+  border: 1px solid var(--line);
+  border-top: 3px solid var(--brass);
+  border-radius: var(--radius);
+  padding: 30px 28px;
+}
+.about-fact-card h3{
+  font-family: var(--font-body);
+  font-size: .95rem;
+  text-transform: uppercase;
+  letter-spacing: .06em;
+  color: var(--ink);
+  margin-bottom: 1.1em;
+}
+.about-fact-card ul{ display: grid; gap: 14px; }
+.about-fact-card li{
+  position: relative;
+  padding-left: 20px;
+  font-size: .95rem;
+  color: var(--text);
+}
+.about-fact-card li::before{
+  content: "";
+  position: absolute;
+  left: 0;
+  top: .55em;
+  width: 8px;
+  height: 8px;
+  background: var(--brass);
+  border-radius: 1px;
+}
+
+/* ============================================================
+   CONTACT
+   ============================================================ */
+
+.contact{
+  background: var(--ink);
+  padding: 96px 0;
+}
+
+.contact-grid{
+  display: grid;
+  grid-template-columns: 1.05fr .95fr;
+  gap: 56px;
+  align-items: start;
+}
+
+.contact h2{ font-size: clamp(1.7rem, 3vw, 2.3rem); }
+
+.contact-actions{
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+  margin-top: 24px;
+}
+
+.contact-card{
+  background: var(--card);
+  border-radius: var(--radius);
+  border-top: 3px solid var(--brass);
+  padding: 32px;
+}
+
+.contact-details{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 22px 16px;
+  margin-bottom: 26px;
+  padding-bottom: 26px;
+  border-bottom: 1px solid var(--line);
+}
+.contact-details dt{
+  font-size: .75rem;
+  text-transform: uppercase;
+  letter-spacing: .08em;
+  color: var(--brass);
+  font-weight: 700;
+  margin-bottom: .35em;
+}
+.contact-details dd{
+  font-size: .98rem;
+  color: var(--ink);
+  font-weight: 500;
+}
+
+.dd-note{
+  display: inline-block;
+  margin-top: .3em;
+  font-size: .82rem;
+  font-weight: 400;
+  font-style: italic;
+  color: var(--slate);
+}
+
+.hours h4{
+  font-family: var(--font-body);
+  font-size: .8rem;
+  text-transform: uppercase;
+  letter-spacing: .08em;
+  color: var(--slate);
+  margin-bottom: .8em;
+}
+.hours-row{
+  display: flex;
+  justify-content: space-between;
+  font-size: .95rem;
+  padding: 8px 0;
+  border-bottom: 1px dashed var(--line);
+  color: var(--text);
+}
+.hours-row:last-child{ border-bottom: none; }
+
+.no-fee-note{
+  margin: 20px 0 0;
+  font-size: .88rem;
+  font-weight: 600;
+  color: var(--harbor-dark);
+}
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+
+.site-footer{
+  background: var(--ink);
+  border-top: 1px solid var(--line-dark);
+  padding: 32px 0;
+}
+
+.footer-row{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.footer-brand{
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.footer-name{
+  margin: 0;
+  color: #fff;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: .95rem;
+}
+.footer-address{
+  margin: 2px 0 0;
+  color: rgba(255,255,255,.6);
+  font-size: .85rem;
+}
+
+.footer-meta{
+  margin: 0;
+  color: rgba(255,255,255,.5);
+  font-size: .82rem;
+}
+
+/* ============================================================
+   REVEAL ON SCROLL
+   ============================================================ */
+
+.reveal{
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity .5s ease, transform .5s ease;
+}
+.reveal.is-visible{
+  opacity: 1;
+  transform: none;
+}
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+
+@media (max-width: 960px){
+  .hero-grid,
+  .about-grid,
+  .contact-grid{
+    grid-template-columns: 1fr;
+  }
+  .carrier-plaque{ grid-template-columns: repeat(2, 1fr); }
+  .carrier-plaque li:nth-child(3n){ border-right: 1px solid var(--line-dark); }
+  .carrier-plaque li:nth-child(2n){ border-right: none; }
+}
+
+@media (max-width: 720px){
+  .main-nav{
+    position: absolute;
+    top: 76px;
+    left: 0;
+    right: 0;
+    background: var(--porcelain);
+    border-bottom: 1px solid var(--line);
+    flex-direction: column;
+    padding: 8px 24px 20px;
+    display: none;
+    gap: 4px;
+  }
+  .main-nav.is-open{ display: flex; }
+  .main-nav a{ padding: 12px 0; border-bottom: 1px solid var(--line); }
+
+  .nav-toggle{ display: flex; }
+  .phone-pill span{ display: none; }
+
+  .header-row{ height: 68px; }
+
+  .carrier-plaque{ grid-template-columns: 1fr; }
+  .carrier-plaque li{ border-right: none !important; }
+
+  .contact-details{ grid-template-columns: 1fr; }
+}
+
+@media (min-width: 721px){
+  .nav-toggle{ display: none; }
+}
+
+</style>
+</head>
+<body>
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="site-header" id="top">
+  <div class="wrap header-row">
+    <a class="brand" href="#top" aria-label="ND Agency LLC, home">
+      <span class="brand-mark" aria-hidden="true">ND</span>
+      <span class="brand-name">ND AGENCY <span class="brand-suffix">LLC</span></span>
+    </a>
+
+    <nav class="main-nav" id="main-nav">
+      <a href="#coverage">Coverage</a>
+      <a href="#carriers">Carriers</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </nav>
+
+    <div class="header-actions">
+      <a class="phone-pill" href="tel:+16319440074">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5c0-.6.4-1 1-1h2.6c.5 0 .9.3 1 .8l.7 3.3c.1.4-.1.9-.5 1.1L7 10.5c1.1 2.3 3 4.2 5.3 5.3l1.3-1.8c.3-.4.7-.5 1.1-.4l3.3.7c.5.1.8.5.8 1V19c0 .6-.4 1-1 1h-1C9.4 20 4 14.6 4 8V5z"/></svg>
+        <span>(631) 944-0074</span>
+      </a>
+      <button class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="main-nav" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div class="hero-copy">
+        <p class="eyebrow">Independent agent · New York, New Jersey &amp; Pennsylvania</p>
+        <h1>Insurance, handled&nbsp;by&nbsp;a&nbsp;person.</h1>
+        <p class="hero-lede">ND Agency LLC shops your coverage across nine-plus carriers to find the fit that's right for you — auto, home, landlord, renters, motorcycle, boat, umbrella, and business. Fluent in English and Russian, with Ukrainian and Belarusian also understood. There's never a fee to get a quote or write a policy.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="tel:+16319440074">Call (631) 944-0074</a>
+          <a class="btn btn-ghost" href="#coverage">See coverage types</a>
+        </div>
+      </div>
+
+      <div class="hero-panel" aria-label="Key facts">
+        <ul class="fact-list">
+          <li>
+            <span class="fact-num">$0</span>
+            <span class="fact-label">Fee to quote or write a policy</span>
+          </li>
+          <li>
+            <span class="fact-num">9+</span>
+            <span class="fact-label">Carriers compared for every quote</span>
+          </li>
+          <li>
+            <span class="fact-num">7</span>
+            <span class="fact-label">Days a week you can reach us</span>
+          </li>
+          <li>
+            <span class="fact-num">3</span>
+            <span class="fact-label">States licensed — NY, NJ, PA</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- COVERAGE SHELF -->
+  <section class="coverage" id="coverage">
+    <div class="wrap">
+      <p class="eyebrow">What ND Agency writes</p>
+      <h2>Eight kinds of coverage, one agent.</h2>
+      <p class="section-lede">Each policy is placed with the carrier that fits your situation best — not the one an app happens to sell.</p>
+    </div>
+
+    <div class="shelf-wrap">
+      <div class="shelf" tabindex="0" role="region" aria-label="Scrollable list of coverage types">
+
+        <article class="policy-card">
+          <div class="policy-tab">Auto</div>
+          <svg class="policy-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 28l3-9a4 4 0 0 1 3.8-2.7h18.4A4 4 0 0 1 37 19l3 9"/><rect x="6" y="28" width="36" height="9" rx="2"/><circle cx="14" cy="37" r="3"/><circle cx="34" cy="37" r="3"/><path d="M8 24h32"/></svg>
+          <h3>Auto</h3>
+          <p>Liability, collision, and comprehensive built around how you actually drive, with rates checked across every carrier we write before you sign.</p>
+        </article>
+
+        <article class="policy-card">
+          <div class="policy-tab">Home</div>
+          <svg class="policy-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 22l16-13 16 13"/><path d="M12 20v17a2 2 0 0 0 2 2h20a2 2 0 0 0 2-2V20"/><path d="M20 39V28h8v11"/></svg>
+          <h3>Home</h3>
+          <p>The house itself, and everything inside it, sized to what it would actually cost to rebuild — not a guess.</p>
+        </article>
+
+        <article class="policy-card">
+          <div class="policy-tab">Landlord</div>
+          <svg class="policy-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 44V16l14-9 14 9v28"/><path d="M10 44h28"/><path d="M20 44V30h8v14"/><path d="M17 20h3M28 20h3M17 26h3M28 26h3"/></svg>
+          <h3>Landlord</h3>
+          <p>Coverage built for property you rent out — protects the building and your income if a tenant's claim goes sideways.</p>
+        </article>
+
+        <article class="policy-card">
+          <div class="policy-tab">Renters</div>
+          <svg class="policy-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="10" y="10" width="28" height="28" rx="2"/><path d="M10 20h28"/><path d="M20 20v18"/><circle cx="26" cy="14" r="1.5" fill="currentColor" stroke="none"/></svg>
+          <h3>Renters</h3>
+          <p>Your belongings and liability covered for less than most people spend on a month of streaming subscriptions.</p>
+        </article>
+
+        <article class="policy-card">
+          <div class="policy-tab">Motorcycle</div>
+          <svg class="policy-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="34" r="5"/><circle cx="36" cy="34" r="5"/><path d="M12 34l6-14h9l4 6h5l4 8"/><path d="M18 20l4-6h6"/></svg>
+          <h3>Motorcycle</h3>
+          <p>Coverage that respects the difference between a daily commuter bike and a weekend cruiser.</p>
+        </article>
+
+        <article class="policy-card">
+          <div class="policy-tab">Boat</div>
+          <svg class="policy-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 30h32l-4 9H12z"/><path d="M14 30V12h4l8 8V12h4"/></svg>
+          <h3>Boat</h3>
+          <p>On-the-water coverage for anything from a kayak with a motor to a cabin cruiser docked for the season.</p>
+        </article>
+
+        <article class="policy-card">
+          <div class="policy-tab">Umbrella</div>
+          <svg class="policy-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 22a16 16 0 0 1 32 0z"/><path d="M24 6v0"/><path d="M24 22v18a3 3 0 0 1-5 2"/></svg>
+          <h3>Umbrella</h3>
+          <p>An extra layer of liability protection that sits on top of your other policies when a claim runs past their limits.</p>
+        </article>
+
+        <article class="policy-card">
+          <div class="policy-tab">Business</div>
+          <svg class="policy-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="8" y="18" width="32" height="20" rx="2"/><path d="M18 18v-4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v4"/><path d="M8 26h32"/></svg>
+          <h3>Business</h3>
+          <p>General liability, property, and commercial auto for the shops and small businesses that anchor Main Street.</p>
+        </article>
+
+      </div>
+      <p class="shelf-hint">Scroll for more →</p>
+    </div>
+  </section>
+
+  <!-- CARRIERS -->
+  <section class="carriers" id="carriers">
+    <div class="wrap">
+      <p class="eyebrow eyebrow-light">Backed by</p>
+      <h2 class="light-heading">Independent means options.</h2>
+      <p class="section-lede light-lede">ND Agency LLC isn't tied to one insurer. Every quote is shopped across these carriers to find coverage that fits — at a price that makes sense.</p>
+
+      <ul class="carrier-plaque">
+        <li>Progressive</li>
+        <li>Travelers</li>
+        <li>Liberty Mutual</li>
+        <li>Allstate</li>
+        <li>National General</li>
+        <li>Otsego Mutual</li>
+        <li>Kingstone</li>
+        <li>Narragansett Bay</li>
+        <li>Nationwide</li>
+      </ul>
+      <p class="carrier-note">Additional carriers are available depending on your coverage needs — ask what other options might fit.</p>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="about" id="about">
+    <div class="wrap about-grid">
+      <div class="about-copy">
+        <p class="eyebrow">About the agency</p>
+        <h2>An independent agent for New York, New Jersey &amp; Pennsylvania.</h2>
+        <p>ND Agency LLC is a licensed independent insurance agent based in St. James, New York, serving clients across New York, New Jersey, and Pennsylvania. Because the agency isn't captive to a single insurance company, every policy is placed based on what actually fits your risk and your budget — not a script.</p>
+        <p>Quoting and writing a policy is always free. You pay the carrier's premium, and nothing extra to the agency for the advice or the paperwork.</p>
+      </div>
+      <div class="about-fact-card">
+        <h3>Why work with an independent agent</h3>
+        <ul>
+          <li>One phone call compares nine-plus carriers instead of one.</li>
+          <li>Coverage is reviewed by a person, not routed through a call-center script.</li>
+          <li>Clients can reach out in English, Russian, Ukrainian, or Belarusian — fluent in English and Russian, with Ukrainian and Belarusian understood.</li>
+          <li>No fee, ever, to get a quote or bind a policy.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="contact" id="contact">
+    <div class="wrap contact-grid">
+      <div class="contact-copy">
+        <p class="eyebrow eyebrow-light">Get in touch</p>
+        <h2 class="light-heading">Talk to ND Agency today.</h2>
+        <p class="section-lede light-lede">Call or text — whichever is easiest. Quotes take just a few minutes.</p>
+
+        <div class="contact-actions">
+          <a class="btn btn-primary" href="tel:+16319440074">Call (631) 944-0074</a>
+        </div>
+      </div>
+
+      <div class="contact-card">
+        <dl class="contact-details">
+          <div>
+            <dt>Phone / Text</dt>
+            <dd><a href="tel:+16319440074">(631) 944-0074</a></dd>
+          </div>
+          <div>
+            <dt>Fax</dt>
+            <dd>(631) 417-3000</dd>
+          </div>
+          <div>
+            <dt>Address</dt>
+            <dd>26 Pinoak Ln<br>St. James, NY 11780<br><span class="dd-note">Office visits by appointment only</span></dd>
+          </div>
+          <div>
+            <dt>Service area</dt>
+            <dd>New York · New Jersey · Pennsylvania</dd>
+          </div>
+        </dl>
+
+        <div class="hours">
+          <h4>Hours for calls &amp; texts</h4>
+          <div class="hours-row"><span>Monday – Friday</span><span>9:30 AM – 9:30 PM</span></div>
+          <div class="hours-row"><span>Saturday – Sunday</span><span>9:30 AM – 1:30 PM</span></div>
+        </div>
+
+        <p class="no-fee-note">No fee to quote or write a policy — ever.</p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap footer-row">
+    <div class="footer-brand">
+      <span class="brand-mark brand-mark-small" aria-hidden="true">ND</span>
+      <div>
+        <p class="footer-name">ND AGENCY LLC</p>
+        <p class="footer-address">26 Pinoak Ln, St. James, NY 11780</p>
+      </div>
+    </div>
+    <p class="footer-meta">Licensed independent insurance agent — NY · NJ · PA. &copy; <span id="year"></span> ND Agency LLC.</p>
+  </div>
+</footer>
+
+<script>
+(function () {
+  "use strict";
+
+  // Footer year
+  var yearEl = document.getElementById("year");
+  if (yearEl) yearEl.textContent = new Date().getFullYear();
+
+  // Mobile nav toggle
+  var toggle = document.getElementById("nav-toggle");
+  var nav = document.getElementById("main-nav");
+
+  if (toggle && nav) {
+    toggle.addEventListener("click", function () {
+      var isOpen = nav.classList.toggle("is-open");
+      toggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
+      toggle.setAttribute("aria-label", isOpen ? "Close menu" : "Open menu");
+    });
+
+    // Close the mobile menu after choosing a link
+    nav.querySelectorAll("a").forEach(function (link) {
+      link.addEventListener("click", function () {
+        nav.classList.remove("is-open");
+        toggle.setAttribute("aria-expanded", "false");
+        toggle.setAttribute("aria-label", "Open menu");
+      });
+    });
+  }
+
+  // Scroll reveal for major sections (skipped if reduced motion is preferred)
+  var prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  var revealTargets = document.querySelectorAll(
+    ".coverage, .carriers, .languages, .about, .contact"
+  );
+
+  if (!prefersReducedMotion && "IntersectionObserver" in window) {
+    revealTargets.forEach(function (el) {
+      el.classList.add("reveal");
+    });
+
+    var observer = new IntersectionObserver(
+      function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("is-visible");
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.12 }
+    );
+
+    revealTargets.forEach(function (el) {
+      observer.observe(el);
+    });
+  }
+})();
+
+</script>
+</body>
+</html>
